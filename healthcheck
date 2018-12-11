@@ -1,14 +1,13 @@
 #!/bin/bash
 
-export $(curl http://$fms_config_host:$fms_config_port/?myhost=$HOSTNAME| jq -r '.[]| join("=")'|xargs )
-
 response=`curl -L -s -o /dev/null -I -w "%{http_code}" http://localhost:3000/`
+
 echo $response 
 if [ $response != "200" ]
     then
         exit 1
     else
-        curl http://$heartbeat_host:$heartbeat_port/?tag=fms.docker.$HOSTNAME
+        exit 0
 fi
 
 exit 0
