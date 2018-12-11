@@ -1,4 +1,4 @@
 # grafana5
 
-- Description
+# Description
 Docker image for grafana 5.x
